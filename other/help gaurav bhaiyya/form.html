@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <script>
+      function validate() {
+        console.log(`i am working`);
+        let dataElement = document.querySelector("#name");
+        let errorElement = document.querySelector("#error");
+        let name = dataElement.value;
+        console.log(name, typeof(name));
+        if (name === "") {
+            errorElement.innerHTML = "Please Enter The Name !";
+            errorElement.style.color = "red";
+            return false
+        } else {
+            errorElement.innerHTML = `Enter data is ${name}.`;
+            errorElement.style.color = "green";
+            return true;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form onsubmit="return validate()">
+      <input type="text" name="name" id="name" />
+      <span id="error"></span> <br>
+      <input type="submit" value="submit" />
+    </form>
+  </body>
+</html>
