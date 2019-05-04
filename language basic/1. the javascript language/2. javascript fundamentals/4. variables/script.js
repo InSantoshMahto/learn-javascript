@@ -6,22 +6,22 @@
  */
 'use strict';
 
-let age = 10;
+let _age = 10;
 
 // practicing block scope
 {
-    let age = 20;
-    console.log("TCL: age", age);
+    let _age = 20;
+    console.log("TCL: _age", _age);
     var name = 'santosh';
-    let mobile = '7788006653';
+    let $mobile = '7788006653';
     const BIRTH_YEAR = 1997;
     console.log("TCL: BIRTH_YEAR", BIRTH_YEAR);
-    console.log("TCL: mobile", mobile);
+    console.log("TCL: $mobile", $mobile);
     console.log("TCL: name", name);
 }
-console.log(`My age is ${age}`);
+console.log(`My _age is ${_age}`);
 console.log("TCL: name", name); // function scope | it`s become global variable
-// console.log("TCL: mobile", mobile); // Error because mobile is declare using let keyword so it`s follow block scope.
+// console.log("TCL: $mobile", mobile); // Error because mobile is declare using let keyword so it`s follow block scope.
 // console.log("TCL: BIRTH_YEAR", BIRTH_YEAR); // Error because it has block scope
 
 /**
