@@ -1,67 +1,63 @@
 /**
  * @author Santosh Mahto
  * @version 1.0.1
- * @todo data types practices
- * @see learning and practices data types
+ * @todo Type Conversions practices
+ * @see learning and practices Type conversions
  */
-'use strict';
+"use strict";
 
-/**
- * List of data types
- * @see Primitive Data Types
- *      Number
- *      String
- *      Boolean
- *      null
- *      undefined
- *      object
- *      symbol : for unique identifier
- * @see also remember
- *      NaN
- *      Infinity
- */
+// To check type using statement
+let age = 21;
 
+console.log(typeof age);
 
-// Infinity
+// To check type using function
+let name = "santosh Mahto";
 
-// alert(  1 / 0 );
-// alert( Infinity );
+console.log(typeof age);
 
+// ToString
+let isMale = true;
 
-// NaN
-// alert( "not a number" / 2 ); // NaN, such division is erroneous
+console.log(typeof isMale); // Boolean
 
+isMale = String(isMale);
+console.log(typeof isMale); // String
 
-// null
-let age = null;
+// ToNumber
+let str = "123";
 
-// alert(age)
+console.log(typeof str); // string
 
+let num = Number(str); // becomes a number 123
 
-// Boolean
-let isGreater = 4 > 1;
+console.log(typeof num); // number
 
-// alert( isGreater ); // true (the comparison result is "yes")
+let check = Number("an arbitrary string instead of a number");
 
+console.log(check); // NaN, conversion failed
 
-// undefined
-/**
- * The meaning of undefined is “value is not assigned”.If a variable is declared, but not assigned, then its value is undefined:
- */
-let x;
+// concatenates
+console.log(1 + "1"); // 11
 
-// alert(x); // shows "undefined"
+// ToBoolean
+console.log(Boolean(0)); // false
+console.log(Boolean(null)); // false
+console.log(Boolean(undefined)); // false
+console.log(Boolean(NaN)); // false
+console.log(Boolean("")); // false
 
-x = 123;
-x = undefined;
+console.log(Boolean(1)); // true
+console.log(Boolean("hello")); // true
+console.log(Boolean("0")); // true
+console.log(Boolean(" ")); // spaces, also true (any non-empty string is true)
 
-// alert(x); // "undefined"
-
-
-// String
-let str = "Hello";
-let str2 = 'Single quotes are ok too';
-let phrase = `can embed ${str}`;
-
-// alert( "the result is ${1 + 2}" ); // the result is ${1 + 2} (double quotes do nothing)
-// alert( `the result is ${1 + 2}` ); // the result is 3
+// other
+console.log(typeof 1); // Number
+console.log(typeof "santosh"); // String
+console.log(typeof true); // Boolean
+console.log(typeof null); // object
+console.log(typeof NaN); // NaN
+console.log(typeof undefined); // undefined
+console.log(typeof {}); // object
+console.log(typeof Symbol("id")); // object
