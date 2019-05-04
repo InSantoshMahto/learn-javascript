@@ -33,3 +33,7 @@ console.log("TCL: name", name); // function scope | it`s become global variable
 })()
 // console.log("TCL: year", year); // Error because year is function scope not a global scope
 
+/**
+ * Being a “constant” just means that a variable’s value never changes. But there are constants that are known prior to execution (like a hexadecimal value for red) and there are constants that are calculated in run-time, during the execution, but do not change after their initial assignment.
+ */
+const pageLoadTime = 563; // time taken by a webpage to load
