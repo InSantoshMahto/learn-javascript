@@ -10,6 +10,9 @@ function validate() {
 
   // regular expressions
   const REG_EMAIL = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-z]{2,6}$/;
+  const REG_CONTACT = /^\d{10}$/;
+  const REG_NAME = /^[a-zA-Z]{2,15}$/;
+  const REG_ADDRESS = /^[a-zA-Z]{2,50}$/;
 
   let eleFirstName = document.querySelector("#first_name");
   let errFirstName = document.querySelector("#error_first_name");
@@ -40,6 +43,10 @@ function validate() {
     flagFirstName = false;
     errFirstName.innerHTML = "Please Enter The first_name !";
     errFirstName.style.color = "red";
+  } else if (!REG_NAME.test(firstName)) {
+    flagFirstName = false;
+    errFirstName.innerHTML = "Invalid First Name !, Please try again.";
+    errFirstName.style.color = "red";
   } else {
     flagFirstName = true;
     errFirstName.innerHTML = "";
@@ -48,6 +55,10 @@ function validate() {
   if (lastName === "") {
     flagLastName = false;
     errLastName.innerHTML = "Please Enter The last Name !";
+    errLastName.style.color = "red";
+  } else if (!REG_NAME.test(lastName)) {
+    flagLastName = false;
+    errLastName.innerHTML = "Invalid Last Name !, Please try again.";
     errLastName.style.color = "red";
   } else {
     flagLastName = true;
@@ -71,6 +82,10 @@ function validate() {
     errContact.innerHTML = "Please Enter The contact";
     errContact.style.color = "red";
     flagContact = false;
+  } else if (!REG_CONTACT.test(contact)) {
+    flagContact = false;
+    errContact.innerHTML = "Invalid Mobile no. !, Please try again.";
+    errContact.style.color = "red";
   } else {
     flagContact = true;
     errContact.innerHTML = "";
@@ -79,6 +94,10 @@ function validate() {
   if (address === "") {
     flagAddress = false;
     errAddress.innerHTML = "Please Enter The address !";
+    errAddress.style.color = "red";
+  } else if (!REG_ADDRESS.test(address)) {
+    flagAddress = false;
+    errAddress.innerHTML = "Invalid Address !, Please try again.";
     errAddress.style.color = "red";
   } else {
     flagAddress = true;
