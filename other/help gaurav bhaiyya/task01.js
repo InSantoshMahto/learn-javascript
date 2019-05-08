@@ -9,7 +9,6 @@ function validate() {
     flagAddress;
 
   // regular expressions
-  // const REG_EMAIL = /^[a-zA-Z0-9._-]+[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   const REG_EMAIL = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-z]{2,6}$/;
 
   let eleFirstName = document.querySelector("#first_name");
@@ -59,14 +58,13 @@ function validate() {
     flagEmailId = false;
     errEmailId.innerHTML = "Please Enter The Email_id !";
     errEmailId.style.color = "red";
-  // } else if (true) {
-  //   flagEmailId = false;
-  //   errEmailId.innerHTML = "Invalid Email id !, Please try again.";
-  //   errEmailId.style.color = "red";
+  } else if (!REG_EMAIL.test(emailId)) {
+    flagEmailId = false;
+    errEmailId.innerHTML = "Invalid Email id !, Please try again.";
+    errEmailId.style.color = "red";
   } else {
     flagEmailId = true;
     errEmailId.innerHTML = "";
-    alert(REG_EMAIL.test(emailId));
   }
 
   if (contact === "") {
