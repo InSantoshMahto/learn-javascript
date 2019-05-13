@@ -27,7 +27,7 @@ connection.connect();
  
 let insertQuery = `INSERT INTO 'user_newform' (first_name, last_name, email_id, contact, address) values('${firstName}', '${lastName}', '${emailId}, '${contact}', '${address}')`
 
-connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+connection.query(insertQuery, function (error, results, fields) {
   if (error) throw error;
   console.log('The solution is: ', results[0].solution);
 });
