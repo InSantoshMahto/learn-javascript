@@ -25,7 +25,7 @@ var connection = mysql.createConnection({
  
 connection.connect();
  
-let insertQuery = "INSERT INTO `user_newform` ()"
+let insertQuery = `INSERT INTO 'user_newform' (first_name, last_name, email_id, contact, address) values('${firstName}', '${lastName}', '${emailId}, '${contact}', '${address}')`
 
 connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
   if (error) throw error;
