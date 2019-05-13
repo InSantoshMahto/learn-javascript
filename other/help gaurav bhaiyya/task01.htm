@@ -1,9 +1,9 @@
 <html>
   <head>
-    <script src="./task01.js"></script>
+    <!-- <script src="./task01.js"></script> -->
   </head>
   <body>
-    <form onsubmit="return validate()">
+    <form onsubmit="return validate()" method="GET" action="http://127.0.0.1:8080/register">
       First name:<br />
       <input type="text" name="first_name" placeholder="Please enter First Name" id="first_name" />
       <span id="error_first_name"></span>
