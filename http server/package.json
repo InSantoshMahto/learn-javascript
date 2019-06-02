@@ -1,0 +1,18 @@
+{
+  "name": "http_https",
+  "version": "1.0.0",
+  "description": "learn node server",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon http.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "santosh mahto",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
