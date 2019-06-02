@@ -3,8 +3,11 @@
 const http2 = require('http2');
 const fs = require('fs');
 const path = require('path');
+const express = require('express');
 
-const HTTP2_PORT = process.env.PORT || 446;
+const app = express();
+
+const HTTP2_PORT = process.env.PORT || 443;
 
 const options = {
     key: fs.readFileSync(path.join(__dirname, 'resources/ssl/key.pem')),
@@ -33,6 +36,7 @@ const server = http2.createSecureServer(options, (req, res) => {
     res.end();
 });
 
+// const server = http2.createSecureServer(options, app);
 
 server.listen(HTTP2_PORT, (err) => {
     if (err) throw err;

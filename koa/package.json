@@ -1,0 +1,25 @@
+{
+  "name": "learn_koa",
+  "version": "1.0.0",
+  "description": "learning koa framework for http2",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "test.js"
+  },
+  "keywords": [
+    "koa",
+    "insantoshmahto"
+  ],
+  "author": "insantoshmahto",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "engines": {
+    "node": "10.x"
+  }
+}
