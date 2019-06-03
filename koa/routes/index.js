@@ -12,10 +12,9 @@ const Router = require('koa-router');
 const router = new Router();
 
 // preparing routing pages.
-const INDEX = 'pages/public/index';
-const ABOUT = 'pages/public/about';
-const CONTACT = 'pages/public/contact';
-const TEAM = 'pages/public/team';
+const INDEX = 'index';
+const ABOUT = 'about';
+const CONTACT = 'contact';
 const EROOR404 = '404';
 const FALLBACK = 'fallback';
 
@@ -62,6 +61,7 @@ router.get('/contact', async ctx => {
 // about page
 router.get('/about', async ctx => {
   await ctx.render(ABOUT, {
+    layout: 'auth-layout',
     domain: domain,
     tagLine: tagLine,
     title: `About | ${tagLine}`,

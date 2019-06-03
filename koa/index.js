@@ -57,14 +57,14 @@ app.use(serve(path.join(__dirname, 'public'), { maxAge: 60000 }));
 app.use(async (ctx, next) => {
     await next();
     // to set domain
-    app.context.damain = ctx.request.origina;
+    app.context.damain = ctx.request.origin;
     console.log(ctx.damain);
 });
 
 // view engine with ejs rendering
 render(app, {
     root: path.join(__dirname, 'views'),
-    layout: false,
+    layout: 'public-layout',
     viewExt: 'html',
     delimiter: '%',
     cache: false,
