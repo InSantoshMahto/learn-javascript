@@ -1,0 +1,44 @@
+@import 'variables';
+
+.tk-accordion-group {
+  .tk-accordion {
+    border: solid 3px transparent;
+    border-radius: 10px;
+    // background: #dc35450d;
+    background: #9e9e9eb3;
+    transition: all 0.2s ease-in;
+    .fas {
+      font-size: 12px;
+    }
+    .fa-minus {
+      display: none;
+    }
+    .tk-accordion-title {
+      color: #fff;
+    }
+    .tk-accordion-title:hover {
+      cursor: pointer;
+    }
+    .tk-accordion-body {
+      display: none;
+    }
+  }
+
+  .tk-accordion-active {
+    border: solid 3px $secondary;
+    background-color: #fff;
+    box-shadow: 5px 0 20px rgba(0, 131, 255, 0.3);
+    .fa-plus {
+      display: none;
+    }
+    .fa-minus {
+      display: inline-flex;
+    }
+    .tk-accordion-title {
+      color: $secondary;
+    }
+    .tk-accordion-body {
+      display: block;
+    }
+  }
+}

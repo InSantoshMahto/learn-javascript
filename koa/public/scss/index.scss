@@ -1,0 +1,57 @@
+      /* feature */
+      .blockRight {
+        display: block;
+        position: absolute;
+        font-size: 65px;
+      }
+
+      .block-down {
+        padding-left: 5rem;
+      }
+
+      .blockup {
+        display: block;
+        position: absolute;
+        font-size: 65px;
+        right: 0px;
+      }
+      .blockup-text {
+        max-width: 75vw;
+      }
+      .blockup:before {
+        padding-right: 0.5rem !important;
+      }
+
+      .feature-block-up:hover {
+        background-image: linear-gradient(to left, #e9ecef, #dc3545);
+        color: white !important;
+        transition: 250ms;
+      }
+      .feature-block-down:hover {
+        background-image: linear-gradient(to right, #e9ecef, #dc3545);
+        color: white !important;
+        transition: 250ms;
+      }
+      /* know-more */
+      .know-more {
+        height: 475px;
+      }
+      /* feedback */
+      .feedback-logo {
+        height: 64px !important;
+        width: 64px !important;
+      }
+
+      .feedback-block {
+        height: 17rem;
+      }
+
+      #feedback {
+        background-image: url('../images/home/feedback/bg.jpeg');
+      }
+
+      /*     bootstrap modifications      */
+      /* card */
+      .card {
+        border: 0px;
+      }

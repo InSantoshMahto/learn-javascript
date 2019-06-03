@@ -1,0 +1,43 @@
+@import 'variables';
+.welcome {
+  position: relative;
+  height: 98vh;
+  background-image: url('../images/about/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .about-gradient {
+    height: inherit;
+    background-image: linear-gradient(
+      to right,
+      rgba(244, 79, 144, 0.2),
+      rgba(228, 71, 51, 0.3)
+    );
+  }
+
+  .transparent {
+    width: 100%;
+    position: absolute;
+    bottom: -30px;
+  }
+  .heading{
+    padding-top: 5rem;
+  }
+
+  .intro {
+    width: 35%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .welcome {
+    height: 72vh;
+    .transparent {
+      bottom: -18px;
+    }
+
+    .intro {
+      width: 100%;
+    }
+  }
+}

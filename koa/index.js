@@ -1,11 +1,18 @@
 'use strict';
 
+const dotenv = require('dotenv').config();
 const Koa = require('koa');
+const favicon = require('koa-favicon');
+const serve = require('koa-static');
+const cors = require('@koa/cors');
+const render = require('koa-ejs');
 const http = require('http');
 const http2 = require('http2');
 const fs = require('fs');
 const path = require('path');
+
 const app = new Koa();
+const router = require('./routes');
 
 const HTTP_PORT = process.env.PORT || 80;
 const HTTP2_PORT = process.env.PORT || 443;
@@ -33,14 +40,49 @@ app.use(async (ctx, next) => {
     ctx.set('X-Response-Time', `${ms}ms`);
 });
 
-// response 
-app.use(async ctx => {
-    ctx.body = 'Hello World';
+// for dotenv
+if (dotenv.error) throw dotenv.error;
+console.log(`key added in env by dotenv are:\n`, dotenv.parsed);
+
+// enable cors
+app.use(cors());
+
+// serve favicon
+app.use(favicon(__dirname + '/public/favicon.ico'));
+
+// serve static contents
+app.use(serve(path.join(__dirname, 'public'), { maxAge: 60000 }));
+
+// global config for domain
+app.use(async (ctx, next) => {
+    await next();
+    // to set domain
+    app.context.damain = ctx.request.origina;
+    console.log(ctx.damain);
 });
 
-httpServer.listen(HTTP_PORT, () => {
+// view engine with ejs rendering
+render(app, {
+    root: path.join(__dirname, 'views'),
+    layout: false,
+    viewExt: 'ejs',
+    delimiter: '%',
+    cache: false,
+    debug: false,
+    async: true
+});
+// routes
+app.use(router.routes())
+    .use(router.allowedMethods());
+
+// listen to http server
+httpServer.listen(HTTP_PORT, err => {
+    if (err) throw err;
     console.log(`HTTP server is listening on PORT ${HTTP_PORT}`);
 });
-http2Server.listen(HTTP2_PORT, () => {
+
+// listen to https or http2 server
+http2Server.listen(HTTP2_PORT, err => {
+    if (err) throw err;
     console.log(`HTTP2 server is listening on PORT ${HTTP2_PORT}`);
 });

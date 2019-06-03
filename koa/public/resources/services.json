@@ -1,0 +1,30 @@
+[
+  {
+    "id": 0,
+    "imageUrl": "images/home/services/workshop.jpg",
+    "imageAltText": "workshop",
+    "dataTarget": "service-00",
+    "title": "workshop"
+  },
+  {
+    "id": 1,
+    "imageUrl": "images/home/services/web&app.jpg",
+    "imageAltText": "web and app",
+    "dataTarget": "service-01",
+    "title": "web development"
+  },
+  {
+    "id": 2,
+    "imageUrl": "images/home/services/logo-creator.jpg",
+    "imageAltText": "logo creator",
+    "dataTarget": "service-02",
+    "title": "logo creator"
+  },
+  {
+    "id": 3,
+    "imageUrl": "images/home/services/electrical-services.jpg",
+    "imageAltText": "electrical services",
+    "dataTarget": "service-03",
+    "title": "electrical services"
+  }
+]

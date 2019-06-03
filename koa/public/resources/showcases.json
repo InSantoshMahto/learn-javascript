@@ -1,0 +1,22 @@
+[
+  {
+    "id": 0,
+    "imageUrl": "images/home/showcases/summer.jpg",
+    "imageAltText": "summer offers"
+  },
+  {
+    "id": 1,
+    "imageUrl": "images/home/showcases/offers.png",
+    "imageAltText": "offers"
+  },
+  {
+    "id": 2,
+    "imageUrl": "images/home/showcases/web.jpg",
+    "imageAltText": "web"
+  },
+  {
+    "id": 3,
+    "imageUrl": "images/home/showcases/tagline.png",
+    "imageAltText": "tagline"
+  }
+]

@@ -1,0 +1,133 @@
+[
+  {
+    "id": 1,
+    "isList": false,
+    "title": "Why you should opt for embedded system?",
+    "content": "The entire future technologies will be based on embedded and it is good if someone start practising embedded system from now itself.",
+    "listItems": null
+  },
+  {
+    "id": 2,
+    "isList": false,
+    "title": "What is the meaning of embedded system?",
+    "content": "When many components are embedded on a single chip and used for several specific purposes then it is termed as a part of embedded system.",
+    "listItems": null
+  },
+  {
+    "id": 3,
+    "isList": true,
+    "title": "What are the basic applications that can be useful to the students learning embedded system?",
+    "content": "It has many applications, some of them are:",
+    "listItems": [
+      "Making your own gesture controllers.",
+      "Making your home appliances fully automated.",
+      "Making voice controlled small robots."
+    ]
+  },
+  {
+    "id": 4,
+    "isList": true,
+    "title": "How to attend workshop?",
+    "content": "The procedure is:",
+    "listItems": [
+      "Go to the website followed by www.teckat.com",
+      "Go to the contact page and submit your query.",
+      "Once we get your response, we will contact you soon."
+    ]
+  },
+  {
+    "id": 5,
+    "isList": false,
+    "title": "Will you be trained in the workshop?",
+    "content": "Yes, you will be trained with all the equipment required for the workshop.",
+    "listItems": null
+  },
+  {
+    "id": 6,
+    "isList": false,
+    "title": "What are the different workshops that we conduct?",
+    "content": " We conduct workshop on Embedded System (Arduino, Node Mcu, Raspberry Pi), Web Development(HTML, CSS, PHP,JavaScript), App Development,etc….",
+    "listItems": null
+  },
+  {
+    "id": 7,
+    "isList": false,
+    "title": "Do you need any pre-knowledge before attending the workshop?",
+    "content": "Pre-knowledge of any programming language is not at all required because we always start from scratch.",
+    "listItems": null
+  },
+  {
+    "id": 8,
+    "isList": false,
+    "title": "How to pay the amount during registration of any of the workshops?",
+    "content": "You need to pay amount either by online or in the given centre before the last date of registration.For further details visit www.teckat.com .",
+    "listItems": null
+  },
+  {
+    "id": 9,
+    "isList": false,
+    "title": "Are such practical knowledge useful to engineer?",
+    "content": "The projects that an engineer should do and which will help them in their future jobs can be implemented only by this type of practical knowledge.",
+    "listItems": null
+  },
+  {
+    "id": 10,
+    "isList": false,
+    "title": "What will be the place of attending the workshop?",
+    "content": "The workshop will be conducted either in your respected school/college or in a specific centre of your city/town.",
+    "listItems": null
+  },
+  {
+    "id": 11,
+    "isList": false,
+    "title": "For how many days workshops will be conducted?",
+    "content": "Workshops are usually conducted for 1-2 days depending upon the type of workshop.",
+    "listItems": null
+  },
+  {
+    "id": 12,
+    "isList": true,
+    "title": "How to contact you for any queries?",
+    "content": "The procedure is:",
+    "listItems": [
+      "Go to the website followed by www.teckat.com",
+      "Go to the contact page and submit your query.",
+      "Once we get your response, we will contact you soon."
+    ]
+  },
+  {
+    "id": 13,
+    "isList": false,
+    "title": "What will be the equipment’s given during the workshop?",
+    "content": "All equipment’s that are required for the workshop will be provided to you.",
+    "listItems": null
+  },
+  {
+    "id": 14,
+    "isList": false,
+    "title": "What will be the overall cost of the workshop?",
+    "content": "The cost of the workshop depends upon the type of workshop conducted. Usually, the amount ranges from Rs. 300 to Rs. 1000 per head.",
+    "listItems": null
+  },
+  {
+    "id": 15,
+    "isList": false,
+    "title": "Whether the equipment’s will be given individually or in a group?",
+    "content": "The choice of group or individuality is totally your`s",
+    "listItems": null
+  },
+  {
+    "id": 16,
+    "isList": false,
+    "title": "How can we buy the equipment’s?",
+    "content": "For any equipment you can directly contact us or mail us your requirements at support@teckat.com and after that we will contact you via call soon.",
+    "listItems": null
+  },
+  {
+    "id": 17,
+    "isList": false,
+    "title": "Can we take the equipment’s home after the workshop gets completed?",
+    "content": "It totally depends on which type of workshop you paid for. For any further assistance contact us on www.teckat.com.",
+    "listItems": null
+  }
+]
