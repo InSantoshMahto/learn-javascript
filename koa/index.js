@@ -65,7 +65,7 @@ app.use(async (ctx, next) => {
 render(app, {
     root: path.join(__dirname, 'views'),
     layout: false,
-    viewExt: 'ejs',
+    viewExt: 'html',
     delimiter: '%',
     cache: false,
     debug: false,
