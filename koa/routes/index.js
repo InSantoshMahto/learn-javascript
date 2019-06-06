@@ -25,6 +25,7 @@ router.use(async (ctx, next) => {
   ctx.state.now = new Date();
   ctx.state.ip = ctx.ip;
   ctx.state.version = '2.0.0';
+  ctx.type = 'text/html; charset=utf-8';
 });
 
 // get data using middleware
