@@ -14,6 +14,7 @@ const router = new Router();
 // preparing routing pages.
 const INDEX = 'index';
 const ABOUT = 'about';
+const PUBLIC = 'public';
 const CONTACT = 'contact';
 const EROOR404 = '404';
 const FALLBACK = 'fallback';
@@ -63,6 +64,16 @@ router.get('/contact', async ctx => {
 router.get('/about', async ctx => {
   await ctx.render(ABOUT, {
     layout: 'auth-layout',
+    domain: domain,
+    tagLine: tagLine,
+    title: `About | ${tagLine}`,
+  });
+});
+
+// public page
+router.get('/public', async ctx => {
+  await ctx.render(PUBLIC, {
+    layout: 'layouts/public',
     domain: domain,
     tagLine: tagLine,
     title: `About | ${tagLine}`,
