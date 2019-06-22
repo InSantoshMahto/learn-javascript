@@ -32,7 +32,32 @@ person.printAge();
 // inheritance
 class Santosh extends Person {
     state: string = 'jharkhand';
+
+    constructor(username: string) {
+        super('work', username)
+    }
 }
 
-const santosh = new Santosh('india', 'IN');
+const santosh = new Santosh('IN');
 console.info(santosh);
+
+// getter & setters
+class Plant {
+    private _name: string = 'default';
+
+    get name() {
+        console.log('getter executed');
+        return this._name;
+    }
+
+    set name(plantName: string) {
+        console.log('setter executed');
+        this._name = plantName;
+        console.info('my plant name is', this._name)
+    }
+}
+
+const plant = new Plant();
+plant.name = 'rose';
+console.log(plant.name);
+

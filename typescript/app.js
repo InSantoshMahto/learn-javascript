@@ -41,12 +41,35 @@ person.printAge();
 // inheritance
 var Santosh = /** @class */ (function (_super) {
     __extends(Santosh, _super);
-    function Santosh() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    function Santosh(username) {
+        var _this = _super.call(this, 'work', username) || this;
         _this.state = 'jharkhand';
         return _this;
     }
     return Santosh;
 }(Person));
-var santosh = new Santosh('india', 'IN');
+var santosh = new Santosh('IN');
 console.info(santosh);
+// getter & setters
+var Plant = /** @class */ (function () {
+    function Plant() {
+        this._name = 'default';
+    }
+    Object.defineProperty(Plant.prototype, "name", {
+        get: function () {
+            console.log('getter executed');
+            return this._name;
+        },
+        set: function (plantName) {
+            console.log('setter executed');
+            this._name = plantName;
+            console.info('my plant name is', this._name);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return Plant;
+}());
+var plant = new Plant();
+plant.name = 'rose';
+console.log(plant.name);
