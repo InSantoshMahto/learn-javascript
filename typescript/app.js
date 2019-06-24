@@ -68,8 +68,39 @@ var Plant = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    Plant.dob = '12-08-1997';
     return Plant;
 }());
 var plant = new Plant();
 plant.name = 'rose';
-console.log(plant.name);
+console.log(plant.name, Plant.dob);
+// abstract  class
+var ColorName = /** @class */ (function () {
+    function ColorName() {
+        this.data = 'default';
+    }
+    ColorName.prototype.getMobileColor = function () {
+        console.log('getMobileColor');
+        return 5;
+    };
+    return ColorName;
+}());
+var Todo = /** @class */ (function (_super) {
+    __extends(Todo, _super);
+    function Todo(myName) {
+        var _this = _super.call(this) || this;
+        _this.myName = myName;
+        return _this;
+    }
+    Todo.prototype.myMobile = function () {
+        console.log(this.myName);
+        return 10;
+    };
+    return Todo;
+}(ColorName));
+var work = new Todo('santosh');
+console.log("work object", work);
+console.log('myMobile', work.myMobile());
+console.log('getMobileColor', work.getMobileColor());
+console.clear();
+//# sourceMappingURL=app.js.map

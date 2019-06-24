@@ -44,6 +44,7 @@ console.info(santosh);
 // getter & setters
 class Plant {
     private _name: string = 'default';
+    static dob: string = '12-08-1997';
 
     get name() {
         console.log('getter executed');
@@ -59,5 +60,33 @@ class Plant {
 
 const plant = new Plant();
 plant.name = 'rose';
-console.log(plant.name);
+console.log(plant.name, Plant.dob);
 
+// abstract  class
+abstract class ColorName {
+    data: string = 'default';
+
+    abstract myMobile(): void;
+
+    getMobileColor(): number {
+        console.log('getMobileColor');
+        return 5;
+    }
+}
+
+class Todo extends ColorName {
+    constructor(public myName: string) {
+        super();
+    }
+
+    myMobile(): number {
+        console.log(this.myName);
+        return 10;
+    }
+}
+
+const work = new Todo('santosh');
+console.log(`work object`, work);
+console.log('myMobile', work.myMobile());
+console.log('getMobileColor', work.getMobileColor());
+console.clear();
