@@ -14,7 +14,7 @@ reloadify(app, __dirname + '/views');
 // view engine setup
 app.engine('html', ejs.renderFile);
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'html');
+app.set('view engine', 'ejs');
 
 app.use((req, res, next) => {
   res.setHeader('Content-Type', 'text/html');
