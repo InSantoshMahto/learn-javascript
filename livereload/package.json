@@ -7,7 +7,7 @@
     "start": "node app.js",
     "dev": "nodemon app.js",
     "prd": "pm2 start app.js",
-    "scss": "node-sass ./assets -w -o ./assets",
+    "scss": "node-sass ./public/scss -w -o ./public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -18,8 +18,13 @@
   "dependencies": {
     "ejs": "^2.6.2",
     "express": "^4.17.1",
+    "koa": "^2.7.0",
+    "koa-ejs": "^4.2.0",
+    "koa-event-stream": "^1.0.3",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
     "sendevent": "^1.0.5",
-    "uglify-js": "^3.6.0",
+    "uglify-es": "^3.3.9",
     "watch": "^1.0.2"
   },
   "devDependencies": {

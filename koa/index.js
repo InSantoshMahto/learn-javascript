@@ -71,6 +71,7 @@ render(app, {
     debug: false,
     async: true
 });
+
 // routes
 app.use(router.routes())
     .use(router.allowedMethods());

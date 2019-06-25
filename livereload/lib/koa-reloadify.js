@@ -40,7 +40,8 @@ function reloadify(app, dir) {
   });
 
   // assign the script to a local const so it's accessible in the view
-  app.locals.watchScript = '<script>' + script + '</script>';
+  app.context.watchScript = '<script>' + script + '</script>';
+  console.log(`console logs: reloadify -> app.context.watchScript`, app.context.watchScript);
 }
 
 module.exports = reloadify;
