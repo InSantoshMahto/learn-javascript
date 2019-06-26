@@ -5,7 +5,7 @@ const Router = require('koa-router');
 const serve = require('koa-static');
 const render = require('koa-ejs');
 const compress = require('koa-compress');
-const sse = require('sse-broadcast');
+// const sse = require('sse-broadcast');
 const cors = require('@koa/cors');
 const http = require('http');
 const path = require('path');
@@ -39,21 +39,28 @@ render(app, {
 });
 
 router.get('/', async (ctx) => {
-  await ctx.render('home', {
-    watchScript: ctx.watchScript,
+  await ctx.render('koa-home');
+});
+
+router.get('/events', (ctx) => {
+  ctx.res.writeHead(200, {
+    'Content-Type': 'text/event-stream',
+    'Cache-Control': 'no-cache',
+    Connection: 'keep-alive',
   });
-});
 
-router.get('/event', (next) => {
-  sse.subscribe('channel', this.res);
-  this.respond = false;
-  next();
-});
+  // ctx.res.write('event: reload\ndata: ' + true + '\n\n');
 
-router.get('/event/:type', (next) => {
-  sse.publish('channel', this.params.type, '1! something happened!');
-  this.body = null;
-  next();
+  setInterval(function() {
+    ctx.res.write('data: ' + Date.now() + '\n\n');
+  }, 2000);
+
+  // ctx.req.on('end', function() {
+  //   clearInterval(id);
+  //   console.log('response ended');
+  // });
+
+  // next();
 });
 
 // routes
@@ -71,3 +78,23 @@ httpServer.listen(HTTP_PORT, (err) => {
   if (err) throw err;
   console.log(`HTTP server is listening on PORT ${HTTP_PORT}`);
 });
+
+// var http = require('http');
+
+// var server = http.createServer(function(req, res) {
+//   if (req.url != '/events') return res.end();
+//   res.writeHead(200, {
+//     'Content-Type': 'text/event-stream',
+//     'Access-Control-Allow-Origin': '*',
+//     'Access-Control-Allow-Headers':
+//       'Origin, X-Requested-With, Content-Type, Accept',
+//   });
+//   var id = setInterval(function() {
+//     res.write('data: ' + Date.now() + '\n\n');
+//   }, 1000);
+//   req.on('end', function() {
+//     clearInterval(id);
+//   });
+// });
+
+// server.listen(80);
