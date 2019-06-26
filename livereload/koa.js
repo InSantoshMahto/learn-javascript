@@ -2,20 +2,27 @@
 
 const Koa = require('koa');
 const Router = require('koa-router');
-const sse = require('koa-event-stream');
 const serve = require('koa-static');
 const render = require('koa-ejs');
+const compress = require('koa-compress');
+const sse = require('sse-broadcast');
+const cors = require('@koa/cors');
 const http = require('http');
 const path = require('path');
 
-let reloadify = require('./lib/koa-reloadify');
+// let reloadify = require('./lib/koa-reloadify');
 
-const HTTP_PORT = process.env.PORT || 85;
+const HTTP_PORT = process.env.PORT || 80;
 
 const app = new Koa();
 const router = new Router();
 
 const httpServer = http.createServer(app.callback());
+
+// gzip compression
+// app.use(compress());
+
+app.use(cors());
 
 // serve static contents
 app.use(serve(path.join(__dirname, 'public')));
@@ -37,11 +44,22 @@ router.get('/', async (ctx) => {
   });
 });
 
+router.get('/event', (next) => {
+  sse.subscribe('channel', this.res);
+  this.respond = false;
+  next();
+});
+
+router.get('/event/:type', (next) => {
+  sse.publish('channel', this.params.type, '1! something happened!');
+  this.body = null;
+  next();
+});
+
 // routes
 app.use(router.routes()).use(router.allowedMethods());
 
-reloadify(app, __dirname + '/views');
-app.use(sse());
+// reloadify(app, __dirname + '/views');
 
 // error-handling
 app.on('error', (err, ctx) => {

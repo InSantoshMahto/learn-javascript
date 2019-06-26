@@ -1,4 +1,4 @@
-const sendevent = require('sendevent');
+// const sendevent = require('sendevent');
 const watch = require('watch');
 const uglify = require('uglify-es');
 const fs = require('fs');
@@ -31,17 +31,17 @@ function reloadify(app, dir) {
   }
 
   // create a middleware that handles requests to `/eventstream`
-  const events = sendevent('/eventstream');
+  // const events = sendevent('/eventstream');
 
-  app.use(events);
+  // app.use(events);
 
   watch.watchTree(dir, function(f, curr, prev) {
-    events.broadcast({ msg: 'reload' });
+    // events.broadcast({ msg: 'reload' });
   });
 
   // assign the script to a local const so it's accessible in the view
   app.context.watchScript = '<script>' + script + '</script>';
-  console.log(`console logs: reloadify -> app.context.watchScript`, app.context.watchScript);
+  // console.log(`console logs: reloadify -> app.context.watchScript`, app.context.watchScript);
 }
 
 module.exports = reloadify;

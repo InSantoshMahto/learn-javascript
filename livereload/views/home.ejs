@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>livereload</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <h1>welcome to livereload</h1>
-    <%- watchScript %>
-    <p>invest time on yourself --</p>
+    <!-- <%- watchScript %> -->
+    <p>invest time on yourself -</p>
     <blockquote>supported by Express, Koa</blockquote>
+        <script>
+        var evtSource = new EventSource("http://localhost/event");
+        evtSource.onmessage = function(e) {
+            console.log(`console logs: evtSource.onmessage -> e`, e);
+            console.log('onMsg: ' + e.data);
+        }
+        evtSource.onerror = function(e) {
+            console.log('error', e);
+            evtSource.close();
+        }
+    </script>
   </body>
 </html>
