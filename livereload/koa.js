@@ -49,18 +49,18 @@ router.get('/events', (ctx) => {
     Connection: 'keep-alive',
   });
 
-  // ctx.res.write('event: reload\ndata: ' + true + '\n\n');
+  ctx.res.write('event: reload\ndata: ' + true + '\n\n');
 
-  setInterval(function() {
+  let id = setInterval(function() {
     ctx.res.write('data: ' + Date.now() + '\n\n');
   }, 2000);
 
-  // ctx.req.on('end', function() {
-  //   clearInterval(id);
-  //   console.log('response ended');
-  // });
-
-  // next();
+  ctx.req.on('end', function() {
+    clearInterval(id);
+    console.log('response ended');
+  });
+  
+  next();
 });
 
 // routes

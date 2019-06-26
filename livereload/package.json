@@ -28,6 +28,7 @@
     "koa-static": "^5.0.0",
     "sendevent": "^1.0.5",
     "sse-broadcast": "^0.5.2",
+    "streamify-string": "^1.0.1",
     "uglify-es": "^3.3.9",
     "watch": "^1.0.2"
   },

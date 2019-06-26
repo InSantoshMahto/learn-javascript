@@ -9,19 +9,10 @@
   </head>
   <body>
     <h1>welcome to livereload</h1>
-    <!-- <%- watchScript %> -->
+    <%- watchScript %>
     <p>invest time on yourself -</p>
-    <blockquote>supported by Express, Koa</blockquote>
-        <script>
-        var evtSource = new EventSource("http://localhost/event");
-        evtSource.onmessage = function(e) {
-            console.log(`console logs: evtSource.onmessage -> e`, e);
-            console.log('onMsg: ' + e.data);
-        }
-        evtSource.onerror = function(e) {
-            console.log('error', e);
-            evtSource.close();
-        }
-    </script>
+    <blockquote>
+      Lorem ipsum dolor sit amet.
+    </blockquote>
   </body>
 </html>
