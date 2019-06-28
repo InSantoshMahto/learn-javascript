@@ -6,6 +6,7 @@
     "polyfill",
     "reloadify",
     "sendevent",
+    "streamify",
     "toplevel"
   ]
 }

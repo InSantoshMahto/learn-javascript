@@ -1,12 +1,12 @@
 const Koa = require('koa');
 const cors = require('@koa/cors');
-const stream = require('stream');
 
 const app = (module.exports = new Koa());
 
-const Readable = stream.Readable();
+let str = 'ok';
 
 const sse = require('./sse');
+const evt = require('./evt');
 
 app.use(cors());
 
@@ -19,13 +19,7 @@ app.use(async function(ctx) {
   ctx.set('Connection', 'keep-alive');
 
   const body = (ctx.body = sse());
-
-  const stream = setInterval(() => {
-    let str = new Readable();
-    str.push('hello');
-    str.push(null);
-  }, 500);
-
+  const stream = evt.subscribe('reload');
   stream.pipe(body);
 
   // if the connection closes or errors,
