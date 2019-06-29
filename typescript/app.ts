@@ -1,7 +1,10 @@
+/// <reference path="rectangle.ts" />
+
 /**
  * @descriptions
  * classes
  */
+
 class Person {
     public name: string;
     private type: string = 'default';
@@ -90,3 +93,5 @@ console.log(`work object`, work);
 console.log('myMobile', work.myMobile());
 console.log('getMobileColor', work.getMobileColor());
 console.clear();
+
+console.log(Rectangle.area(6, 6));

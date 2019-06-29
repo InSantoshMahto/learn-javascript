@@ -12,6 +12,15 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var Rectangle;
+(function (Rectangle) {
+    function area(l, b) {
+        return l * b;
+    }
+    Rectangle.area = area;
+})(Rectangle || (Rectangle = {}));
+console.log(Rectangle.area(5, 5));
+/// <reference path="rectangle.ts" />
 /**
  * @descriptions
  * classes
@@ -103,4 +112,5 @@ console.log("work object", work);
 console.log('myMobile', work.myMobile());
 console.log('getMobileColor', work.getMobileColor());
 console.clear();
+console.log(Rectangle.area(6, 6));
 //# sourceMappingURL=app.js.map
