@@ -1,18 +1,18 @@
-const sendevent = require('sendevent');
-const watch = require('watch');
-const uglify = require('uglify-es');
-const fs = require('fs');
-const path = require('path');
+import sendevent from 'sendevent';
+import { watchTree } from 'watch';
+import { minify } from 'uglify-es';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 const ENV = process.env.NODE_ENV || 'development';
 
 // create && minify static JS code to be included in the page
-let polyfill = fs.readFileSync(
-  path.join(__dirname, '../public/js/eventsource-polyfill.js'),
+let polyfill = readFileSync(
+  join(__dirname, '../public/js/eventsource-polyfill.js'),
   'utf8'
 );
 
-let clientScript = fs.readFileSync(
-  path.join(__dirname, '../public/js/client-script.js'),
+let clientScript = readFileSync(
+  join(__dirname, '../public/js/client-script.js'),
   'utf8'
 );
 
@@ -21,7 +21,7 @@ let codes = {
   'clientScript.js': clientScript,
 };
 
-let script = uglify.minify(codes).code;
+let script = minify(codes).code;
 // console.log(`console logs: script`, script);
 
 function reloadify(app, dir) {
@@ -35,7 +35,7 @@ function reloadify(app, dir) {
 
   app.use(events);
 
-  watch.watchTree(dir, function(f, curr, prev) {
+  watchTree(dir, function(f, curr, prev) {
     events.broadcast({ msg: 'reload' });
   });
 
@@ -43,4 +43,4 @@ function reloadify(app, dir) {
   app.locals.watchScript = '<script>' + script + '</script>';
 }
 
-module.exports = reloadify;
+export default reloadify;
