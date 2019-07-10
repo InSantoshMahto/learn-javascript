@@ -8,8 +8,7 @@ const path = require('path');
 const app = (module.exports = new Koa());
 const router = new Router();
 
-const sse = require('./lib/sse');
-const evt = require('./lib/evt');
+let livereload = require('./lib');
 
 // importing views
 const INDEX = 'index';
@@ -42,30 +41,7 @@ router.get('/test', (ctx) => {
   ctx.body = `<h1>i am working</h1>`;
 });
 
-router.get('/event_stream', (ctx) => {
-  // otherwise node will automatically close this connection in 2 minutes
-  ctx.req.setTimeout(Number.MAX_VALUE);
-
-  ctx.type = 'text/event-stream; charset=utf-8';
-  ctx.set('Cache-Control', 'no-cache');
-  ctx.set('Connection', 'keep-alive');
-
-  const body = (ctx.body = sse());
-  const stream = evt.subscribe();
-  stream.pipe(body);
-
-  // if the connection closes or errors,
-  // we stop the SSE.
-  const socket = ctx.socket;
-  socket.on('error', close);
-  socket.on('close', close);
-
-  function close() {
-    stream.unpipe(body);
-    socket.removeListener('error', close);
-    socket.removeListener('close', close);
-  }
-});
+livereload(router);
 
 // ping routes for check whether server is alive or not
 router.get('/ping', (ctx) => {

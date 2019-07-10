@@ -1,10 +1,6 @@
-const Router = require('koa-router');
-
-const router = new Router();
-
-const sse = require('./lib/sse');
-const evt = require('./lib/evt');
-let livereload = (app) => {
+const sse = require('./sse');
+const evt = require('./evt');
+let livereload = (router) => {
   router.get('/event_stream', (ctx) => {
     // otherwise node will automatically close this connection in 2 minutes
     ctx.req.setTimeout(Number.MAX_VALUE);
@@ -29,9 +25,6 @@ let livereload = (app) => {
       socket.removeListener('close', close);
     }
   });
-
-  // attached router object with app
-  app.use(router.routes()).use(router.allowedMethods());
 };
 
 module.exports = livereload;
