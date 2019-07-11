@@ -24,3 +24,7 @@ pre {
   font-style: italic;
   color: purple;
 }
+
+span {
+  color: rgb(112, 15, 223);
+}
