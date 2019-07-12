@@ -17,6 +17,7 @@
     "koa-static": "^5.0.0"
   },
   "devDependencies": {
+    "eslint": "^6.0.1",
     "koa-liverefresh": "^0.1.2"
   }
 }

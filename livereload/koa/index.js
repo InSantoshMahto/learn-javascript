@@ -1,10 +1,10 @@
-const Koa = require('koa');
-const Router = require('koa-router');
-const cors = require('@koa/cors');
-const static = require('koa-static');
-const render = require('koa-ejs');
-const path = require('path');
-const livereload = require('koa-liverefresh')
+import Koa from 'koa';
+import Router from 'koa-router';
+import cors from '@koa/cors';
+import serve from 'koa-static';
+import render from 'koa-ejs';
+import { join } from 'path';
+import livereload from 'koa-liverefresh';
 
 const app = new Koa();
 const router = new Router();
@@ -18,11 +18,11 @@ const PORT = process.env.PORT || 80;
 app.use(cors());
 
 // serve static file as a public
-app.use(static(path.join(__dirname, '/public')));
+app.use(serve(join(__dirname, '/public')));
 
 // view engine with ejs rendering
 render(app, {
-  root: path.join(__dirname, 'views'),
+  root: join(__dirname, 'views'),
   layout: 'layout',
   viewExt: 'ejs',
   delimiter: '%',
@@ -34,11 +34,7 @@ render(app, {
 /**
  * @description configure koa-liverefresh
  */
-livereload(
-  router,
-  path.join(__dirname, 'public'),
-  path.join(__dirname, 'views')
-);
+livereload(router, join(__dirname, 'public'), join(__dirname, 'views'));
 
 // root get request handler
 router.get('/', async (ctx) => {
