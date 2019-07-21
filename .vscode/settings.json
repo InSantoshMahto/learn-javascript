@@ -3,6 +3,7 @@
     "eventsource",
     "eventstream",
     "insantoshmahto",
+    "liverefresh",
     "polyfill",
     "reloadify",
     "sendevent",
