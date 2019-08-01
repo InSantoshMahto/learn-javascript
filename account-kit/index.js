@@ -16,8 +16,8 @@ var csrf_guid = Guid.raw();
 // Facebook Graph API is version 2.6 and will be displayed in your
 // Facebook app dashboard, but setting 2.6 for the api_version will not work here
 const account_kit_api_version = 'v1.1';
-const app_id = '356727274982556';
-const app_secret = '9e764751f6a2f62eb659aa13152b1fbc';
+const app_id = 'XXXXXXXXXXXXXX';
+const app_secret = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX';
 const me_endpoint_base_url =
   'https://graph.accountkit.com/' + account_kit_api_version + '/me';
 const token_exchange_base_url =
