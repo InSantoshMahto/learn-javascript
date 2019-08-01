@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 8080;
-var csrf_guid = Guid.raw();
+let csrf_guid = Guid.raw();
 // We are using Account Kit which is version 1.0
 // Facebook Graph API is version 2.6 and will be displayed in your
 // Facebook app dashboard, but setting 2.6 for the api_version will not work here
@@ -28,13 +28,13 @@ function loadLogin() {
 }
 
 app.get('/', function(request, response) {
-  var view = {
+  let view = {
     appId: app_id,
     csrf: csrf_guid,
     version: account_kit_api_version,
   };
 
-  var html = Mustache.to_html(loadLogin(), view);
+  let html = Mustache.to_html(loadLogin(), view);
   response.send(html);
 });
 
@@ -50,15 +50,15 @@ function loadError() {
 app.post('/sendcode', function(request, response) {
   // CSRF check
   if (request.body.csrf_nonce === csrf_guid) {
-    var app_access_token = ['AA', app_id, app_secret].join('|');
-    var params = {
+    let app_access_token = ['AA', app_id, app_secret].join('|');
+    let params = {
       grant_type: 'authorization_code',
       code: request.body.code,
       access_token: app_access_token,
     };
 
     // exchange tokens
-    var token_exchange_url =
+    let token_exchange_url =
       token_exchange_base_url + '?' + Querystring.stringify(params);
     Request.get({ url: token_exchange_url, json: true }, function(
       err,
@@ -66,7 +66,7 @@ app.post('/sendcode', function(request, response) {
       respBody
     ) {
       // console.log(`\nexchange tokens:: console logs: respBody`, respBody);
-      var view = {
+      let view = {
         user_access_token: respBody.access_token,
         expires_at: respBody.token_refresh_interval_sec,
         user_id: respBody.id,
@@ -74,7 +74,7 @@ app.post('/sendcode', function(request, response) {
       // console.log(`\nconsole logs: view\n\t`, view);
 
       // get account details at /me endpoint
-      var me_endpoint_url =
+      let me_endpoint_url =
         me_endpoint_base_url + '?access_token=' + respBody.access_token;
       Request.get({ url: me_endpoint_url, json: true }, function(
         err,
@@ -92,17 +92,19 @@ app.post('/sendcode', function(request, response) {
           view.identity = respBody.email.address;
         }
         console.log(`\nconsole logs: view\n\t`, view);
-        var html = Mustache.to_html(loadLoginSuccess(), view);
+        let html = Mustache.to_html(loadLoginSuccess(), view);
         response.send(html);
       });
     });
   } else {
-    // login failed
-    // response.writeHead(200, { 'Content-Type': 'text/html' });
-    // response.end('Something went wrong. :( ');
-    var html = Mustache.to_html(loadError());
+    let html = Mustache.to_html(loadError());
     response.send(html);
   }
+});
+
+app.get('/sendcode', function(request, response) {
+  let html = Mustache.to_html(loadError());
+  response.send(html);
 });
 
 function loadEmailRedirect() {
@@ -112,7 +114,7 @@ function loadEmailRedirect() {
 // for email
 app.get('/accepts', function(request, response) {
   const view = request.query;
-  var html = Mustache.to_html(loadEmailRedirect(), view);
+  let html = Mustache.to_html(loadEmailRedirect(), view);
   response.send(html);
 });
 
