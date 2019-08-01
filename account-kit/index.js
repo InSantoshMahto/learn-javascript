@@ -16,8 +16,8 @@ var csrf_guid = Guid.raw();
 // Facebook Graph API is version 2.6 and will be displayed in your
 // Facebook app dashboard, but setting 2.6 for the api_version will not work here
 const account_kit_api_version = 'v1.1';
-const app_id = 'XXXXXXXXXXXXXX';
-const app_secret = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+const app_id = 'XXXXXXXXXXXXXXXXXXXX';
+const app_secret = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
 const me_endpoint_base_url =
   'https://graph.accountkit.com/' + account_kit_api_version + '/me';
 const token_exchange_base_url =
@@ -42,6 +42,11 @@ function loadLoginSuccess() {
   return fs.readFileSync('dist/login_success.html').toString();
 }
 
+function loadError() {
+  return fs.readFileSync('dist/error.html').toString();
+}
+
+// for mobile
 app.post('/sendcode', function(request, response) {
   // CSRF check
   if (request.body.csrf_nonce === csrf_guid) {
@@ -93,9 +98,22 @@ app.post('/sendcode', function(request, response) {
     });
   } else {
     // login failed
-    response.writeHead(200, { 'Content-Type': 'text/html' });
-    response.end('Something went wrong. :( ');
+    // response.writeHead(200, { 'Content-Type': 'text/html' });
+    // response.end('Something went wrong. :( ');
+    var html = Mustache.to_html(loadError());
+    response.send(html);
   }
+});
+
+function loadEmailRedirect() {
+  return fs.readFileSync('dist/email_redirect.html').toString();
+}
+
+// for email
+app.get('/accepts', function(request, response) {
+  const view = request.query;
+  var html = Mustache.to_html(loadEmailRedirect(), view);
+  response.send(html);
 });
 
 app.listen(PORT, () => {
