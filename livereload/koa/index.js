@@ -1,41 +1,53 @@
 const Koa = require('koa');
+const Router = require('koa-router');
 const cors = require('@koa/cors');
+const serve = require('koa-static');
+const render = require('koa-ejs');
+const path = require('path');
+const livereload = require('koa-liverefresh');
 
-const app = (module.exports = new Koa());
+const app = new Koa();
+const router = new Router();
 
-let str = 'ok';
+// importing views
+const INDEX = 'index';
 
-const sse = require('./sse');
-const evt = require('./evt');
+// set port
+const PORT = process.env.PORT || 80;
 
+// allow cors request
 app.use(cors());
 
-app.use(async function(ctx) {
-  // otherwise node will automatically close this connection in 2 minutes
-  ctx.req.setTimeout(Number.MAX_VALUE);
+// serve static file as a public
+app.use(serve(path.join(__dirname, '/public')));
 
-  ctx.type = 'text/event-stream; charset=utf-8';
-  ctx.set('Cache-Control', 'no-cache');
-  ctx.set('Connection', 'keep-alive');
-
-  const body = (ctx.body = sse());
-  const stream = evt.subscribe('reload');
-  stream.pipe(body);
-
-  // if the connection closes or errors,
-  // we stop the SSE.
-  const socket = ctx.socket;
-  socket.on('error', close);
-  socket.on('close', close);
-
-  function close() {
-    stream.unpipe(body);
-    socket.removeListener('error', close);
-    socket.removeListener('close', close);
-  }
+// view engine with ejs rendering
+render(app, {
+  root: path.join(__dirname, 'views'),
+  layout: 'layout',
+  viewExt: 'ejs',
+  delimiter: '%',
+  cache: false,
+  debug: false,
+  async: true,
 });
 
-if (!module.parent)
-  app.listen(80, () => {
-    console.log('server is listening port: 80');
-  });
+/**
+ * @description configure koa-liverefresh
+ */ livereload(router, true, {
+  public: path.join(__dirname, 'public'),
+  views: path.join(__dirname, 'views'),
+});
+
+// root get request handler
+router.get('/', async ctx => {
+  await ctx.render(INDEX);
+});
+
+// attached router object with app
+app.use(router.routes()).use(router.allowedMethods());
+
+// listen to the server
+app.listen(PORT, () => {
+  console.log(`server is listening port: ${PORT}`);
+});
