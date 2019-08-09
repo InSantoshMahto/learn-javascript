@@ -5,7 +5,7 @@
     <string name="package_name">io.ionic.starter</string>
     <string name="fileprovider_authority">io.ionic.starter.fileprovider</string>
     <string name="custom_url_scheme">io.ionic.starter</string>
-    <string name="fb_app_id">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
-    <string name="fb_app_name">onsi</string>
-    <string name="accountkit_token">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
+    <string name="ak_fb_app_id">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
+    <string name="ak_fb_app_name">onsi</string>
+    <string name="ak_accountkit_token">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
 </resources>

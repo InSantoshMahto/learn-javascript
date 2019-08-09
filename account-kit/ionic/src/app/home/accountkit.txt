@@ -1,10 +1,18 @@
-cordova plugin add cordova-plugin-accountkit --save \
-   --variable APP_ID="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
+ionic cordova plugin add https://github.com/prototype-berlin/cordova-plugin-accountkit.git --save \
+   --variable APP_ID="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
    --variable APP_NAME="onsi" \
    --variable CLIENT_TOKEN="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
    --variable API_VERSION="v1.1"
 
+string.xml
+==========
 
-    <string name="fb_app_id">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
-    <string name="fb_app_name">onsi</string>
-    <string name="accountkit_token">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
+ <string name="ak_fb_app_id">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
+    <string name="ak_fb_app_name">onsi</string>
+    <string name="ak_accountkit_token">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
+
+manifest
+========
+<uses-permission android:name="android.permission.RECEIVE_SMS" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.GET_ACCOUNTS" />

@@ -10,7 +10,7 @@ android {
 apply from: "../capacitor-cordova-android-plugins/cordova.variables.gradle"
 dependencies {
 
-    implementation "com.facebook.android:account-kit-sdk:4.+"
+
 }
 
 
