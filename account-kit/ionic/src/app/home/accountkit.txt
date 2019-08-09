@@ -1,0 +1,10 @@
+cordova plugin add cordova-plugin-accountkit --save \
+   --variable APP_ID="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
+   --variable APP_NAME="onsi" \
+   --variable CLIENT_TOKEN="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
+   --variable API_VERSION="v1.1"
+
+
+    <string name="fb_app_id">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
+    <string name="fb_app_name">onsi</string>
+    <string name="accountkit_token">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>

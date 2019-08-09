@@ -1,0 +1,26 @@
+{
+  "name": "account-kit-api",
+  "version": "1.0.0",
+  "description": "api account-kit-by-insantoshmahto",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "insantoshmahto"
+  ],
+  "author": "insantoshmahto",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "guid": "0.0.12",
+    "morgan": "^1.9.1",
+    "request": "^2.88.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
