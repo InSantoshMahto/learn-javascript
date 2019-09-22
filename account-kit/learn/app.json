@@ -1,0 +1,12 @@
+{
+  "name": "account kit",
+  "description": "inSantoshMahto",
+  "repository": "https://github.com/insantoshmahto/onsi-iot-server",
+  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
+  "keywords": [
+    "iot",
+    "giet",
+    "insantoshmahto"
+  ],
+  "image": "heroku/nodejs"
+}
