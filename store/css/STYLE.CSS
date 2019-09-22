@@ -1,0 +1,192 @@
+/* starting */
+
+* {
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+
+/* navbar background colors*/
+
+.bg-black {
+    background-color: #000;
+}
+
+body,
+.bg-onsi {
+    background-color: aliceblue;
+}
+
+
+/* effect design */
+
+.effect:hover {
+    border: solid red 1px;
+    opacity: .8;
+}
+
+
+/* --------------------------------------
+                    welcome                              
+  -------------------------------------------*/
+
+.welcome {
+    height: auto;
+    background-image: url(../resoures/images/background/welcome.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mainForm {
+    padding: 5rem 15rem 5rem 15rem;
+}
+
+
+/* --------------------------------------
+                    feature                             
+  -------------------------------------------*/
+
+.feature {
+    margin-top: 50px;
+    padding-top: 80px;
+    padding-bottom: 100px;
+}
+
+.feature .feature-main-heading {
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+}
+
+
+/* --------------------------------------
+                    pricing                             
+  -------------------------------------------*/
+
+.pricing {
+    height: auto;
+    background-image: url(../resoures/images/background/pricing.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.pricing-main-heading {
+    padding-bottom: 100px;
+}
+
+.effectPrice {
+    border: solid 2px;
+    border-image: url(../resoures/images/background/pricing.png);
+}
+
+.effectPrice:hover {
+    border: solid #f00 2px;
+}
+
+
+/* --------------------------------------
+                   why use site (wus)                        
+  -------------------------------------------*/
+
+.wus {
+    padding-top: 100px;
+}
+
+.wus .wus-main-heading {
+    padding-bottom: 100px;
+}
+
+
+/* --------------------------------------
+                   video                        
+  -------------------------------------------*/
+
+.video {
+    padding-top: 100px;
+}
+
+.video .video-main-heading {
+    padding-bottom: 100px;
+}
+
+
+/* --------------------------------------
+                   how it works (hiw)                        
+  -------------------------------------------*/
+
+.hiw {
+    height: auto;
+    background-image: url(../resoures/images/background/hiw.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.hiw .hiw-main-heading {
+    padding-bottom: 100px;
+}
+
+
+/* --------------------------------------
+                    feature                             
+  -------------------------------------------*/
+
+.footer {
+    margin-top: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.footer .footer-heading {
+    padding-bottom: 50px;
+}
+
+
+/* -------------------------------------------------------------------------------
+                        media query for responsive 
+    ------------------------------------------------------------------------------- */
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+
+@media (max-width: 575.98px) {
+    .welcome {
+        background-image: url(https://via.placeholder.com/480x800);
+    }
+}
+
+
+/* Small devices (landscape phones, less than 768px) */
+
+@media (max-width: 767.98px) {
+    .welcome {
+        background-image: url(https://via.placeholder.com/580x700);
+    }
+}
+
+
+/* Medium devices (tablets, less than 992px) */
+
+@media (max-width: 991.98px) {}
+
+
+/* Large devices (desktops, less than 1200px) */
+
+@media (max-width: 1199.98px) {}
+
+
+/* Extra large devices (large desktops)  */
+
+
+/* No media query since the extra-large breakpoint has no upper bound on its width */
