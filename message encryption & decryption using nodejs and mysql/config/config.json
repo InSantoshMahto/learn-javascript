@@ -1,0 +1,12 @@
+{
+	"db": {
+		"host": "remotemysql.com",
+		"user": "i1OMcI5j0m",
+		"password": "W2Y12oyYeF",
+		"database": "i1OMcI5j0m"
+	},
+	"crypto": {
+    "algorithm":"aes-256-cbc",
+    "key": "b97622e17bcb5804b3e03249314cc16ed3c6fca010861584114549c2ba6f47a0"
+	}
+}
