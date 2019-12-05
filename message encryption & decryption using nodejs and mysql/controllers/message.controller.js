@@ -3,20 +3,23 @@
 const cryptography = require('./utils/crypto.util');
 
 exports.getMessage = (req, res, next) => {
-	let query = `SELECT * FROM messages`;
+	let query = `SELECT CONVERT(AES_DECRYPT(FROM_BASE64(message), 'insantoshmahto'), CHAR)  AS message, id, senderId, receiverId FROM messages WHERE message=TO_BASE64( AES_ENCRYPT('text','insantoshmahto'))`;
 	db.query(query, async (errors, results, fields) => {
 		if (errors) {
 			return next({ status: 502, message: errors });
 		}
-		results = results.map((item) => {
-			return {
-				id: item.id,
-				senderId: item.senderId,
-				receiverId: item.receiverId,
-				message: cryptography.Decrypt(item.message, item.secret),
-			};
+		// results = results.map((item) => {
+		// 	return {
+		// 		id: item.id,
+		// 		senderId: item.senderId,
+		// 		receiverId: item.receiverId,
+		// 		message: cryptography.Decrypt(item.message, item.secret),
+		// 	};
+		// });
+		res.status(200).json({
+			sucess: true,
+			results,
 		});
-		res.status(200).json({ sucess: true, results });
 	});
 };
 
@@ -62,7 +65,7 @@ exports.postMessage = async (req, res, next) => {
 };
 
 exports.getMessageBySerarch = async (req, res, next) => {
-  // SELECT AES_DECRYPT(FROM_BASE64(message), 'insantoshmahto') from messages
-  // INSERT INTO `messages`(`id`, `message`, `senderId`, `receiverId`, `secret`) VALUES (NULL, TO_BASE64( AES_ENCRYPT('hey santosh','insantoshmahto')),'1','2','dirct')
+	// SELECT AES_DECRYPT(FROM_BASE64(message), 'insantoshmahto') from messages
+	// INSERT INTO `messages`(`id`, `message`, `senderId`, `receiverId`, `secret`) VALUES (NULL, TO_BASE64( AES_ENCRYPT('hey santosh','insantoshmahto')),'1','2','dirct')
 	res.send({});
 };
