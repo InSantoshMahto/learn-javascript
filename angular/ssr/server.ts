@@ -57,7 +57,7 @@ app.get(
 );
 
 // All regular routes use the Universal engine
-app.get('*', (req, res) => {
+app.get('*', (req: express.Request, res: express.Response) => {
   res.render('index', { req });
 });
 
