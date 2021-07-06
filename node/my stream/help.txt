@@ -1,4 +1,0 @@
-1. https://github.com/topics/video-streaming?l=javascript
-2. https://github.com/SachinKalsi/video-upload-and-video-streaming
-3. https://github.com/jlandure/nodejs-streaming-video-html5
-4. https://github.com/davidgatti/How-to-Stream-Movies-using-NodeJS
