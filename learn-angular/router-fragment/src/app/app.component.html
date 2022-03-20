@@ -1,0 +1,10 @@
+<header>
+  <h1>Welcome <code>{{title}}</code></h1>
+  <nav>
+    <button (click)="onMove('welcome', '/')">welcome</button>
+    <button (click)="onMove('middle', '/')">middle</button>
+    <button (click)="onMove('footer', '/')">footer</button>
+  </nav>
+</header>
+
+<router-outlet></router-outlet>
