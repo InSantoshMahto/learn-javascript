@@ -1,0 +1,13 @@
+body {
+  background-color: azure;
+}
+
+.block {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+button:hover {
+  cursor: pointer;
+}
